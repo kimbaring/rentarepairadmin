@@ -38,16 +38,17 @@
                 <div class="card-body">
                   <div class="content1">
                     <ContentLoader  class="con-loader"
-                      viewBox="0 0 176 126"
+                      width="176"
+                      height="126"
                       primaryColor="#f3f3f3"
                       secondaryColor="#cccccc">
-                      <rect x="0" y="10" rx="3" ry="3" width="90" height="15" />
-                      <rect x="50" y="50" rx="3" ry="3" width="30" height="20" />
-                      <circle cx="20" cy="60" r="20" />
+                      <rect x="0" y="20" rx="3" ry="3" width="145" height="25" />
+                      <rect x="75" y="75" rx="3" ry="3" width="30" height="35" />
+                      <circle cx="30" cy="90" r="30" />
                       </ContentLoader>
                   </div>
                   <div class="con-value1">
-                    <h5 class="card-title">Technicians <span>| Today</span></h5>
+                    <h5 class="card-title">Technicians <span></span></h5>
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                         <i class="bi bi-people"></i>
@@ -82,16 +83,17 @@
                 <div class="card-body">
                   <div class="content2">
                     <ContentLoader  class="con-loader"
-                      viewBox="0 0 176 126"
+                      width="176"
+                      height="126"
                       primaryColor="#f3f3f3"
                       secondaryColor="#cccccc">
-                      <rect x="0" y="10" rx="3" ry="3" width="90" height="15" />
-                      <rect x="50" y="50" rx="3" ry="3" width="30" height="20" />
-                      <circle cx="20" cy="60" r="20" />
+                      <rect x="0" y="20" rx="3" ry="3" width="145" height="25" />
+                      <rect x="75" y="75" rx="3" ry="3" width="30" height="35" />
+                      <circle cx="30" cy="90" r="30" />
                       </ContentLoader>
                   </div>
                   <div class="con-value2">
-                    <h5 class="card-title">RideSharer <span>| Today</span></h5>
+                    <h5 class="card-title">RideSharer <span></span></h5>
 
                   <div class="d-flex align-items-center">
                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -128,16 +130,17 @@
                 <div class="card-body">
                   <div class="content3">
                     <ContentLoader  class="con-loader"
-                      viewBox="0 0 176 126"
+                      width="176"
+                      height="126"
                       primaryColor="#f3f3f3"
                       secondaryColor="#cccccc">
-                      <rect x="0" y="10" rx="3" ry="3" width="90" height="15" />
-                      <rect x="50" y="50" rx="3" ry="3" width="30" height="20" />
-                      <circle cx="20" cy="60" r="20" />
+                      <rect x="0" y="20" rx="3" ry="3" width="145" height="25" />
+                      <rect x="75" y="75" rx="3" ry="3" width="30" height="35" />
+                      <circle cx="30" cy="90" r="30" />
                       </ContentLoader>
                   </div>
                   <div class="con-value3">
-                    <h5 class="card-title">Towing <span>| Today</span></h5>
+                    <h5 class="card-title">Towing <span></span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -201,56 +204,42 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Technicians <span>| Today</span></h5> 
+                  <h5 class="card-title">Technicians</h5> 
+                  <div class="content4">
+                    <ContentLoader  class="con-loader"
+                      width="930"
+                      height="150"
+                      primaryColor="#f3f3f3"
+                      secondaryColor="#cccccc">
+                      <rect x="0" y="2" rx="3" ry="3" width="1000" height="35" />
+                      <rect x="0" y="50" rx="3" ry="3" width="1000" height="35" />
+                      <rect x="0" y="100" rx="3" ry="3" width="1000" height="35" />
+                      </ContentLoader>
+                  </div>
+                  <div class="con-value4">
+                
 
                   <table class="table tableborderless datatable">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Customer</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Firstname</th>
+                                <th scope="col">Lastname</th>
+                                <th scope="col">Email</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row"><a href="#">#2457</a></th>
-                                <td>Brandon Jacob</td>
-                                <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                                <td>$64</td>
-                                <td><span class="badge bg-success">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2147</a></th>
-                                <td>Bridie Kessler</td>
-                                <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                                <td>$47</td>
-                                <td><span class="badge bg-warning">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2049</a></th>
-                                <td>Ashleigh Langosh</td>
-                                <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                                <td>$147</td>
-                                <td><span class="badge bg-success">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2644</a></th>
-                                <td>Angus Grady</td>
-                                <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                                <td>$67</td>
-                                <td><span class="badge bg-danger">Rejected</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2644</a></th>
-                                <td>Raheem Lehner</td>
-                                <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                                <td>$165</td>
-                                <td><span class="badge bg-success">Approved</span></td>
+                            <tr v-for="o in objectt">
+                                <th scope="row"><a href="#">{{o.id}}</a></th>
+                                <td>{{o.username}}</td>
+                                <td>{{o.firstname}}</td>
+                                <td>{{o.lastname}}</td>
+                                <td>{{o.email}}</td>
                             </tr>
                         </tbody>
                     </table>
+                  </div>
                 </div>
 
             </div>
@@ -273,62 +262,47 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Ride Sharer <span>| Today</span></h5> 
+                  <h5 class="card-title">Ride Sharer <span></span></h5> 
+                  <div class="content5">
+                    <ContentLoader  class="con-loader"
+                      width="930"
+                      height="150"
+                      primaryColor="#f3f3f3"
+                      secondaryColor="#cccccc">
+                      <rect x="0" y="2" rx="3" ry="3" width="1000" height="35" />
+                      <rect x="0" y="50" rx="3" ry="3" width="1000" height="35" />
+                      <rect x="0" y="100" rx="3" ry="3" width="1000" height="35" />
+                      </ContentLoader>
+                  </div>
 
-                  <table class="table tableborderless datatable">
-                        <thead>
+                  <div class="con-value5">
+                    <table class="table tableborderless datatable">
+                      <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Customer</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Firstname</th>
+                                <th scope="col">Lastname</th>
+                                <th scope="col">Email</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row"><a href="#">#2457</a></th>
-                                <td>Brandon Jacob</td>
-                                <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                                <td>$64</td>
-                                <td><span class="badge bg-success">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2147</a></th>
-                                <td>Bridie Kessler</td>
-                                <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                                <td>$47</td>
-                                <td><span class="badge bg-warning">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2049</a></th>
-                                <td>Ashleigh Langosh</td>
-                                <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                                <td>$147</td>
-                                <td><span class="badge bg-success">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2644</a></th>
-                                <td>Angus Grady</td>
-                                <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                                <td>$67</td>
-                                <td><span class="badge bg-danger">Rejected</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2644</a></th>
-                                <td>Raheem Lehner</td>
-                                <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                                <td>$165</td>
-                                <td><span class="badge bg-success">Approved</span></td>
+                            <tr v-for="o in objectr">
+                                <th scope="row"><a href="#">{{o.id}}</a></th>
+                                <td>{{o.username}}</td>
+                                <td>{{o.firstname}}</td>
+                                <td>{{o.lastname}}</td>
+                                <td>{{o.email}}</td>
                             </tr>
                         </tbody>
                     </table>
+                  </div>
                 </div>
 
             </div>
             </div><!-- End Recent Sales -->
              <!-- Recent Sales -->
-             <div class="col-12">
+             <!-- <div class="col-12">
               <div class="card recent-sales overflow-auto">
 
                 <div class="filter">
@@ -398,9 +372,10 @@
                 </div>
 
             </div>
-            </div><!-- End Recent Sales -->
+            </div> -->
+            <!-- End Recent Sales -->
             <!-- Top Selling -->
-            <div class="col-12">
+            <!-- <div class="col-12">
               <div class="card top-selling overflow-auto">
 
                 <div class="filter">
@@ -466,7 +441,8 @@
                 </div>
 
               </div>
-            </div><!-- End Top Selling -->
+            </div> -->
+            <!-- End Top Selling -->
 
           </div>
         </div><!-- End Left side columns -->
@@ -653,7 +629,7 @@
 <script>
 
   import { local } from '../functions.js';
-   import { axiosReq } from '@/functions';
+   import { axiosReq,removeFix } from '@/functions';
    import { ciapi } from '@/globals';
    import { ContentLoader } from 'vue-content-loader'
 
@@ -667,6 +643,30 @@
            technicians: 0,
            ridesharer: 0,
            towtruck: 0,
+           objectt: [{
+              Id: 0,
+              username: "",
+              firstname: "",
+              lastname: "",
+              email: "",
+              status: "",
+           }],
+           objectr: [{
+              Id: 0,
+              username: "",
+              firstname: "",
+              lastname: "",
+              email: "",
+              status: "",
+           }],
+           objecttw: [{
+              Id: 0,
+              username: "",
+              firstname: "",
+              lastname: "",
+              email: "",
+              status: "",
+           }]
          }
        },
        mounted(){
@@ -683,9 +683,15 @@
                    console.log(res.data);
                    if(res.data.success)
                    {
+                      for(let data in res.data.result)
+                      {
+                        this.objectt.push(removeFix(res.data.result[data],'user_'));
+                      }
                       this.technicians = Object.keys(res.data.result).length;
                       document.querySelector(".con-value1").style.display = "block";
                       document.querySelector(".content1").style.display = "none";
+                      document.querySelector(".con-value4").style.display = "block";
+                      document.querySelector(".content4").style.display = "none";
                    }
                    else
                    {
@@ -705,9 +711,15 @@
                    console.log(res.data);
                    if(res.data.success)
                    {
+                      for(let data in res.data.result)
+                      {
+                        this.objectr.push(removeFix(res.data.result[data],'user_'));
+                      }
                       this.ridesharer = Object.keys(res.data.result).length;
                       document.querySelector(".con-value2").style.display = "block";
                       document.querySelector(".content2").style.display = "none";
+                      document.querySelector(".con-value5").style.display = "block";
+                      document.querySelector(".content5").style.display = "none";
                    }
                    else
                    {
@@ -760,6 +772,12 @@
   height: 130px;
 }
 .con-value3{
+  display: none;
+}
+.content4{
+  height: 130px;
+}
+.con-value4{
   display: none;
 }
 </style>
