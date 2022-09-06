@@ -219,7 +219,7 @@
                   <div class="con-value4">
                 
 
-                  <table class="table tableborderless datatable">
+                    <table class="table tableborderless datatable">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -272,7 +272,7 @@
                       <rect x="0" y="2" rx="3" ry="3" width="1000" height="35" />
                       <rect x="0" y="50" rx="3" ry="3" width="1000" height="35" />
                       <rect x="0" y="100" rx="3" ry="3" width="1000" height="35" />
-                      </ContentLoader>
+                    </ContentLoader>
                   </div>
 
                   <div class="con-value5">
@@ -301,8 +301,7 @@
 
             </div>
             </div><!-- End Recent Sales -->
-             <!-- Recent Sales -->
-             <!-- <div class="col-12">
+            <div class="col-12">
               <div class="card recent-sales overflow-auto">
 
                 <div class="filter">
@@ -317,132 +316,48 @@
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
                 </div>
+                  <div class="card-body">
+                  <h5 class="card-title">Towing Members</h5> 
+                  <div class="content6">
+                    <ContentLoader  class="con-loader"
+                      width="930"
+                      height="150"
+                      primaryColor="#f3f3f3"
+                      secondaryColor="#cccccc">
+                      <rect x="0" y="2" rx="3" ry="3" width="1000" height="35" />
+                      <rect x="0" y="50" rx="3" ry="3" width="1000" height="35" />
+                      <rect x="0" y="100" rx="3" ry="3" width="1000" height="35" />
+                    </ContentLoader>
+                  </div>
+                  <div class="con-value6">
+                
 
-                <div class="card-body">
-                  <h5 class="card-title">Towing <span>| Today</span></h5> 
-
-                  <table class="table tableborderless datatable">
+                    <table class="table tableborderless datatable">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Customer</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Firstname</th>
+                                <th scope="col">Lastname</th>
+                                <th scope="col">Email</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row"><a href="#">#2457</a></th>
-                                <td>Brandon Jacob</td>
-                                <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                                <td>$64</td>
-                                <td><span class="badge bg-success">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2147</a></th>
-                                <td>Bridie Kessler</td>
-                                <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                                <td>$47</td>
-                                <td><span class="badge bg-warning">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2049</a></th>
-                                <td>Ashleigh Langosh</td>
-                                <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                                <td>$147</td>
-                                <td><span class="badge bg-success">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2644</a></th>
-                                <td>Angus Grady</td>
-                                <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                                <td>$67</td>
-                                <td><span class="badge bg-danger">Rejected</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2644</a></th>
-                                <td>Raheem Lehner</td>
-                                <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                                <td>$165</td>
-                                <td><span class="badge bg-success">Approved</span></td>
+                            <tr v-for="o in objectt">
+                                <th scope="row"><a href="#">{{o.id}}</a></th>
+                                <td>{{o.username}}</td>
+                                <td>{{o.firstname}}</td>
+                                <td>{{o.lastname}}</td>
+                                <td>{{o.email}}</td>
                             </tr>
                         </tbody>
                     </table>
+                  </div>
                 </div>
 
             </div>
-            </div> -->
-            <!-- End Recent Sales -->
-            <!-- Top Selling -->
-            <!-- <div class="col-12">
-              <div class="card top-selling overflow-auto">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body pb-0">
-                  <h5 class="card-title">Top Worker <span>| Today</span></h5>
-
-                  <table class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">Preview</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Sold</th>
-                        <th scope="col">Revenue</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
-                        <td>$64</td>
-                        <td class="fw-bold">124</td>
-                        <td>$5,828</td>
-                      </tr>
-                      <tr>
-                        <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
-                        <td>$46</td>
-                        <td class="fw-bold">98</td>
-                        <td>$4,508</td>
-                      </tr>
-                      <tr>
-                        <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                        <td>$59</td>
-                        <td class="fw-bold">74</td>
-                        <td>$4,366</td>
-                      </tr>
-                      <tr>
-                        <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
-                        <td>$32</td>
-                        <td class="fw-bold">63</td>
-                        <td>$2,016</td>
-                      </tr>
-                      <tr>
-                        <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
-                        <td>$79</td>
-                        <td class="fw-bold">41</td>
-                        <td>$3,239</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div> -->
-            <!-- End Top Selling -->
+            </div>
+            
 
           </div>
         </div><!-- End Left side columns -->
@@ -450,78 +365,7 @@
         <!-- Right side columns -->
         <div class="col-lg-4">
 
-          <!-- Recent Activity
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
-
-            <div class="card-body">
-              <h5 class="card-title">Recent Activity <span>| Today</span></h5>
-
-              <div class="activity">
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">32 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                  <div class="activity-content">
-                    Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
-                  </div>
-                </div>
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">56 min</div>
-                  <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                  <div class="activity-content">
-                    Voluptatem blanditiis blanditiis eveniet
-                  </div>
-                </div>
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 hrs</div>
-                  <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                  <div class="activity-content">
-                    Voluptates corrupti molestias voluptatem
-                  </div>
-                </div>
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">1 day</div>
-                  <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                  <div class="activity-content">
-                    Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
-                  </div>
-                </div>
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">2 days</div>
-                  <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                  <div class="activity-content">
-                    Est sit eum reiciendis exercitationem
-                  </div>
-                </div>
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label">4 weeks</div>
-                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                  <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-          </div> End Recent Activity -->
+          
 
           <!-- Budget Report -->
           <div class="card">
@@ -640,9 +484,6 @@
     },
     data() {
          return{
-           technicians: 0,
-           ridesharer: 0,
-           towtruck: 0,
            objectt: [{
               Id: 0,
               username: "",
@@ -666,7 +507,10 @@
               lastname: "",
               email: "",
               status: "",
-           }]
+           }],
+           technicians: 0,
+           ridesharer: 0,
+           towtruck: 0,
          }
        },
        mounted(){
@@ -677,10 +521,7 @@
                     PWAuth: local.get('user_token'),
                     PWAuthUser: local.get('user_id')
               }
-               }).catch(err=>{
-               console.log(err.response);
                }).then(res=>{
-                   console.log(res.data);
                    if(res.data.success)
                    {
                       for(let data in res.data.result)
@@ -697,7 +538,9 @@
                    {
                       console.log("something went wrong");
                    }
-               });
+               }).catch(err=>{
+               console.log(err.response)});
+
                axiosReq({
                method: 'post',
                url: ciapi +'users?user_role=ride_sharer&_batch=true',
@@ -742,6 +585,15 @@
                       this.towtruck = Object.keys(res.data.result).length;
                       document.querySelector(".con-value3").style.display = "block";
                       document.querySelector(".content3").style.display = "none";
+                      for(let data in res.data.result)
+                      {
+                        this.objecttw.push(removeFix(res.data.result[data],'user_'));
+                      }
+                      this.towtruck = Object.keys(res.data.result).length;
+                      document.querySelector(".con-value1").style.display = "block";
+                      document.querySelector(".content1").style.display = "none";
+                      document.querySelector(".con-value6").style.display = "block";
+                      document.querySelector(".content6").style.display = "none";
                    }
                    else
                    {
@@ -778,6 +630,18 @@
   height: 130px;
 }
 .con-value4{
+  display: none;
+}
+.content5{
+  height: 130px;
+}
+.con-value5{
+  display: none;
+}
+.content6{
+  height: 130px;
+}
+.con-value6{
   display: none;
 }
 </style>

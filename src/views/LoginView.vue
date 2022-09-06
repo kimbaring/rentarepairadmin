@@ -71,7 +71,8 @@
                         local.set('user_id',res.data.admin_id);
                         local.set('user_token',res.data.token);
                         local.setObject('user_info', res.data.info);
-                       this.$router.push("/dashboard");
+                       this.$router.replace("/dashboard");
+                       
                    }
                    else
                    {
