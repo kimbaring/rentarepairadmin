@@ -4,6 +4,8 @@ import LoginView from '../views/LoginView.vue';
 import TechnicianView from '../views/TechnicianView.vue';
 import RideSharerView from '../views/RideSharerView.vue';
 import TowingView from '../views/TowingView.vue';
+import UserProfileView from '../views/ProfileView.vue';
+import ServiceView from '../views/ServiceView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,6 +50,22 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: TowingView
+    },
+    {
+      path: '/userprofile',
+      name: 'userprofile',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: UserProfileView
+    },
+    {
+      path: '/service',
+      name: 'service',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: ServiceView
     }
   ]
 })
