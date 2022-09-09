@@ -219,7 +219,7 @@
                   <div class="con-value4">
                 
 
-                    <table class="table tableborderless datatable">
+                    <table id="dataexampletable">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -229,15 +229,15 @@
                                 <th scope="col">Email</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr v-for="o in objectt">
-                                <th scope="row"><a href="#">{{o.id}}</a></th>
-                                <td>{{o.username}}</td>
-                                <td>{{o.firstname}}</td>
-                                <td>{{o.lastname}}</td>
-                                <td>{{o.email}}</td>
+                        <tfoot>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Firstname</th>
+                                <th scope="col">Lastname</th>
+                                <th scope="col">Email</th>
                             </tr>
-                        </tbody>
+                        </tfoot>
                     </table>
                   </div>
                 </div>
@@ -512,6 +512,20 @@
            ridesharer: 0,
            towtruck: 0,
          }
+       },
+       created(){
+        $(document).ready(function () {
+            $('#dataexampletable').DataTable({
+            ajax: 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=technician&_batch=true',
+            columns: [
+              { data : "user_id" },
+              { data : "user_username" },
+              { data : "user_firstname"},
+              { data : "user_lastname"},
+              { data : "user_email"},
+            ]
+            });
+        });
        },
        mounted(){
             axiosReq({
