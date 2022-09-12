@@ -32,27 +32,27 @@
                       </ContentLoader>
                   </div>
                   <div class="con-value1">
-                
-
-                    <table class="table tableborderless datatable">
-                        <thead>
+                    <table id="techniciantable" class="table tableborderless datatable" width="100%">
+                      <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Firstname</th>
                                 <th scope="col">Lastname</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr v-for="o in objectt">
-                                <th scope="row"><a href="#">{{o.id}}</a></th>
-                                <td>{{o.username}}</td>
-                                <td>{{o.firstname}}</td>
-                                <td>{{o.lastname}}</td>
-                                <td>{{o.email}}</td>
+                        <tfoot>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Firstname</th>
+                                <th scope="col">Lastname</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Action</th>
                             </tr>
-                        </tbody>
+                        </tfoot>
                     </table>
                   </div>
                 </div>
@@ -113,6 +113,24 @@ import { local } from '../functions.js';
 
                
        },
+       created(){
+        $(document).ready(function () {
+            $('#techniciantable').DataTable({
+            ajax : {
+              url : 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=technician&_batch=true',
+              dataSrc : "result",
+            },
+            columns : [
+              { data : "user_id" },
+              { data : "user_username" },
+              { data : "user_firstname"},
+              { data : "user_lastname"},
+              { data : "user_email"},
+              { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
+            ]
+            });
+        });
+       }
   }
 </script>
 <style scoped>
