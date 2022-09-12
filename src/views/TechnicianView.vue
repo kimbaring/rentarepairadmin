@@ -59,6 +59,7 @@
     </div>
    </SharedLayout>
 </template>
+
 <script>
 import { local } from '../functions.js';
    import { axiosReq,removeFix } from '@/functions';

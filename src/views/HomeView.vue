@@ -218,7 +218,7 @@
                   </div>
                   <div class="con-value4">
               
-                    <table id="technicianTable" class="table tableborderless datatable" width="100%">
+                    <table id="techniciantable" class="table tableborderless datatable" width="100%">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -335,7 +335,7 @@
                   <div class="con-value6">
                 
 
-                    <table id="ridesharerTable" class="table tableborderless datatable" width="100%">
+                    <table id="TowingTable" class="table tableborderless datatable" width="100%">
                       <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -520,9 +520,37 @@
        },
        created(){
         $(document).ready(function () {
+            $('#techniciantable').DataTable({
+            ajax : {
+              url : 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=technician&_batch=true',
+              dataSrc : "result",
+            },
+            columns : [
+              { data : "user_id" },
+              { data : "user_username" },
+              { data : "user_firstname"},
+              { data : "user_lastname"},
+              { data : "user_email"},
+              { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
+            ]
+            });
             $('#ridesharerTable').DataTable({
             ajax : {
               url : 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=ride_sharer&_batch=true',
+              dataSrc : "result",
+            },
+            columns : [
+              { data : "user_id" },
+              { data : "user_username" },
+              { data : "user_firstname"},
+              { data : "user_lastname"},
+              { data : "user_email"},
+              { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
+            ]
+            });
+            $('#TowingTable').DataTable({
+            ajax : {
+              url : 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=tow_truck_operator&_batch=true',
               dataSrc : "result",
             },
             columns : [
