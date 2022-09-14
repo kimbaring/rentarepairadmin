@@ -19,45 +19,32 @@
     </div>
     <div class="card">
         <div class="card-body">
-                  <h5 class="card-title">RideSharer</h5> 
-                  <div class="content1">
-                    <ContentLoader  class="con-loader"
-                      width="930"
-                      height="150"
-                      primaryColor="#f3f3f3"
-                      secondaryColor="#cccccc">
-                      <rect x="0" y="2" rx="3" ry="3" width="3000" height="35" />
-                      <rect x="0" y="50" rx="3" ry="3" width="3000" height="35" />
-                      <rect x="0" y="100" rx="3" ry="3" width="3000" height="35" />
-                      </ContentLoader>
-                  </div>
-                  <div class="con-value1">
-                    <div id="divRequest4">
-                      <table id="ridesharerTable1" class="table tableborderless datatable" width="100%" data-turbolinks="false">
-                      <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Firstname</th>
-                                <th scope="col">Lastname</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Firstname</th>
-                                <th scope="col">Lastname</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                    </div>
-                  </div>
-                </div>
+          <h5 class="card-title">RideSharer</h5> 
+            <div id="divRequest4">
+              <table id="ridesharerTable1" class="table tableborderless datatable" width="100%">
+              <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+          </div>
     </div>
    </SharedLayout>
 </template>
@@ -103,8 +90,6 @@ import { local } from '../functions.js';
                       this.technicians = Object.keys(res.data.result).length;
                       document.querySelector(".con-value1").style.display = "block";
                       document.querySelector(".content1").style.display = "none";
-                      document.querySelector(".con-value4").style.display = "block";
-                      document.querySelector(".content4").style.display = "none";
                    }
                    else
                    {
