@@ -204,21 +204,9 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Technicians</h5> 
-                  <div class="content4">
-                    <ContentLoader  class="con-loader"
-                      width="930"
-                      height="150"
-                      primaryColor="#f3f3f3"
-                      secondaryColor="#cccccc">
-                      <rect x="0" y="2" rx="3" ry="3" width="1000" height="35" />
-                      <rect x="0" y="50" rx="3" ry="3" width="1000" height="35" />
-                      <rect x="0" y="100" rx="3" ry="3" width="1000" height="35" />
-                      </ContentLoader>
-                  </div>
-                  <div class="con-value4">
-              
-                    <table id="techniciantable" class="table tableborderless datatable" width="100%">
+                  <h5 class="card-title">Technicians</h5>
+                  <div id="divRequest1">
+                    <table id="techniciantable" class="display" width="100%">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -264,41 +252,29 @@
 
                 <div class="card-body">
                   <h5 class="card-title">Ride Sharer <span></span></h5> 
-                  <div class="content5">
-                    <ContentLoader  class="con-loader"
-                      width="930"
-                      height="150"
-                      primaryColor="#f3f3f3"
-                      secondaryColor="#cccccc">
-                      <rect x="0" y="2" rx="3" ry="3" width="1000" height="35" />
-                      <rect x="0" y="50" rx="3" ry="3" width="1000" height="35" />
-                      <rect x="0" y="100" rx="3" ry="3" width="1000" height="35" />
-                    </ContentLoader>
-                  </div>
-
-                  <div class="con-value5">
+                  <div id="divRequest2">
                     <table id="ridesharerTable" class="table tableborderless datatable"  width="100%">
-                      <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Firstname</th>
-                                <th scope="col">Lastname</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Firstname</th>
-                                <th scope="col">Lastname</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    <thead>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Username</th>
+                              <th scope="col">Firstname</th>
+                              <th scope="col">Lastname</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Action</th>
+                          </tr>
+                      </thead>
+                      <tfoot>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Username</th>
+                              <th scope="col">Firstname</th>
+                              <th scope="col">Lastname</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Action</th>
+                          </tr>
+                      </tfoot>
+                  </table>
                   </div>
                 </div>
 
@@ -320,43 +296,30 @@
                   </ul>
                 </div>
                   <div class="card-body">
-                  <h5 class="card-title">Towing Members</h5> 
-                  <div class="content6">
-                    <ContentLoader  class="con-loader"
-                      width="930"
-                      height="150"
-                      primaryColor="#f3f3f3"
-                      secondaryColor="#cccccc">
-                      <rect x="0" y="2" rx="3" ry="3" width="1000" height="35" />
-                      <rect x="0" y="50" rx="3" ry="3" width="1000" height="35" />
-                      <rect x="0" y="100" rx="3" ry="3" width="1000" height="35" />
-                    </ContentLoader>
-                  </div>
-                  <div class="con-value6">
-                
-
+                  <h5 class="card-title">Towing Members</h5>               
+                  <div id="divRequest3">
                     <table id="TowingTable" class="table tableborderless datatable" width="100%">
-                      <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Firstname</th>
-                                <th scope="col">Lastname</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Firstname</th>
-                                <th scope="col">Lastname</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    <thead>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Username</th>
+                              <th scope="col">Firstname</th>
+                              <th scope="col">Lastname</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Action</th>
+                          </tr>
+                      </thead>
+                      <tfoot>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Username</th>
+                              <th scope="col">Firstname</th>
+                              <th scope="col">Lastname</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Action</th>
+                          </tr>
+                      </tfoot>
+                  </table>
                   </div>
                 </div>
 
@@ -518,53 +481,61 @@
            towtruck: 0,
          }
        },
-       created(){
-        $(document).ready(function () {
-            $('#techniciantable').DataTable({
-            ajax : {
-              url : 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=technician&_batch=true',
-              dataSrc : "result",
-            },
-            columns : [
-              { data : "user_id" },
-              { data : "user_username" },
-              { data : "user_firstname"},
-              { data : "user_lastname"},
-              { data : "user_email"},
-              { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
-            ]
-            });
-            $('#ridesharerTable').DataTable({
-            ajax : {
-              url : 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=ride_sharer&_batch=true',
-              dataSrc : "result",
-            },
-            columns : [
-              { data : "user_id" },
-              { data : "user_username" },
-              { data : "user_firstname"},
-              { data : "user_lastname"},
-              { data : "user_email"},
-              { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
-            ]
-            });
-            $('#TowingTable').DataTable({
-            ajax : {
-              url : 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=tow_truck_operator&_batch=true',
-              dataSrc : "result",
-            },
-            columns : [
-              { data : "user_id" },
-              { data : "user_username" },
-              { data : "user_firstname"},
-              { data : "user_lastname"},
-              { data : "user_email"},
-              { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
-            ]
-            });
-        });
-       },
        mounted(){
+        $(document).ready(function () {
+          if ($('#techniciantable_wrapper').length == 1) {
+            $('#divRequest1').empty().append('<table id="techniciantable"><thead><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></thead><tfoot><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></tfoot></table>');
+        }
+          $('#techniciantable').dataTable({
+                ajax : {
+                  url: 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=technician&_batch=true',
+                  dataSrc: 'result'
+                },
+                columns : [
+                  { data : "user_id" },
+                  { data : "user_username" },
+                  { data : "user_firstname"},
+                  { data : "user_lastname"},
+                  { data : "user_email"},
+                  { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
+                ],
+            });
+            if ($('#ridesharerTable_wrapper').length == 1) {
+            $('#divRequest2').empty().append('<table id="ridesharerTable"><thead><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></thead><tfoot><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></tfoot></table>');
+        }
+          $('#ridesharerTable').dataTable({
+                ajax : {
+                  url: 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=ride_sharer&_batch=true',
+                  dataSrc: 'result'
+                },
+                columns : [
+                  { data : "user_id" },
+                  { data : "user_username" },
+                  { data : "user_firstname"},
+                  { data : "user_lastname"},
+                  { data : "user_email"},
+                  { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
+                ],
+            });
+            if ($('#TowingTable_wrapper').length == 1) {
+            $('#divRequest3').empty().append('<table id="TowingTable"><thead><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></thead><tfoot><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></tfoot></table>');
+        }
+          $('#TowingTable').dataTable({
+                ajax : {
+                  url: 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=tow_truck_operator&_batch=true',
+                  dataSrc: 'result'
+                },
+                columns : [
+                  { data : "user_id" },
+                  { data : "user_username" },
+                  { data : "user_firstname"},
+                  { data : "user_lastname"},
+                  { data : "user_email"},
+                  { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
+                ],
+            });
+            
+        });
             axiosReq({
                method: 'post',
                url: ciapi +'users?user_role=technician&_batch=true',
@@ -582,8 +553,6 @@
                       this.technicians = Object.keys(res.data.result).length;
                       document.querySelector(".con-value1").style.display = "block";
                       document.querySelector(".content1").style.display = "none";
-                      document.querySelector(".con-value4").style.display = "block";
-                      document.querySelector(".content4").style.display = "none";
                    }
                    else
                    {
@@ -612,8 +581,6 @@
                       this.ridesharer = Object.keys(res.data.result).length;
                       document.querySelector(".con-value2").style.display = "block";
                       document.querySelector(".content2").style.display = "none";
-                      document.querySelector(".con-value5").style.display = "block";
-                      document.querySelector(".content5").style.display = "none";
                    }
                    else
                    {
@@ -643,8 +610,6 @@
                       this.towtruck = Object.keys(res.data.result).length;
                       document.querySelector(".con-value1").style.display = "block";
                       document.querySelector(".content1").style.display = "none";
-                      document.querySelector(".con-value6").style.display = "block";
-                      document.querySelector(".content6").style.display = "none";
                    }
                    else
                    {

@@ -32,7 +32,8 @@
                       </ContentLoader>
                   </div>
                   <div class="con-value1">
-                    <table id="techniciantable" class="table tableborderless datatable" width="100%">
+                    <div id="divRequest5">
+                      <table id="techniciantable1" class="table tableborderless datatable" width="100%" data-turbolinks="false">
                       <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -54,6 +55,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                    </div>
                   </div>
                 </div>
     </div>
@@ -116,7 +118,10 @@ import { local } from '../functions.js';
        },
        created(){
         $(document).ready(function () {
-            $('#techniciantable').DataTable({
+          if ($('#techniciantable1_wrapper').length == 1) {
+            $('#divRequest5').empty().append('<table id="techniciantable1"><thead><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></thead><tfoot><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></tfoot></table>');
+        }
+            $('#techniciantable1').DataTable({
             ajax : {
               url : 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=technician&_batch=true',
               dataSrc : "result",
@@ -142,6 +147,9 @@ import { local } from '../functions.js';
   height: 130px;
 }
 .con-value1{
+  display: none;
+}
+.TowingTable_wrapper{
   display: none;
 }
 </style>

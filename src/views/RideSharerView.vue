@@ -32,7 +32,8 @@
                       </ContentLoader>
                   </div>
                   <div class="con-value1">
-                    <table id="ridesharerTable" class="table tableborderless datatable" width="100%">
+                    <div id="divRequest4">
+                      <table id="ridesharerTable1" class="table tableborderless datatable" width="100%" data-turbolinks="false">
                       <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -54,6 +55,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                    </div>
                   </div>
                 </div>
     </div>
@@ -113,7 +115,10 @@ import { local } from '../functions.js';
        },
        created()
        {$(document).ready(function () {
-            $('#ridesharerTable').DataTable({
+        if ($('#ridesharerTable1_wrapper').length == 1) {
+            $('#divRequest4').empty().append('<table id="ridesharerTable1"><thead><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></thead><tfoot><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></tfoot></table>');
+        }
+            $('#ridesharerTable1').DataTable({
             ajax : {
               url : 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=ride_sharer&_batch=true',
               dataSrc : "result",
@@ -127,9 +132,7 @@ import { local } from '../functions.js';
               { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
             ]
             });
-            
-        });
-                                                                                                     
+          });
        }
   }
 </script>
