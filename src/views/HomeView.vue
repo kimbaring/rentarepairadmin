@@ -214,6 +214,7 @@
                                 <th scope="col">Firstname</th>
                                 <th scope="col">Lastname</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -224,6 +225,7 @@
                                 <th scope="col">Firstname</th>
                                 <th scope="col">Lastname</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </tfoot>
@@ -441,11 +443,11 @@
 <script>
 
   import { local } from '../functions.js';
-   import { axiosReq,removeFix } from '@/functions';
+   import { axiosReq,removeFix,elementLoad } from '@/functions';
    import { ciapi } from '@/globals';
    import { ContentLoader } from 'vue-content-loader';
 
-  export default{
+  const value = ({
     name: "App",
     components: {
       ContentLoader,
@@ -497,9 +499,87 @@
                   { data : "user_firstname"},
                   { data : "user_lastname"},
                   { data : "user_email"},
-                  { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
+                  { data : "user_isdeactivated",
+                    render: function(data){
+                      var statusword = "";
+                      var statusclass = "";
+                      switch(data){
+                        case '1':
+                            statusword = 'Block';
+                            statusclass = 'important';
+                            break;
+                        case '4':
+                            statusword = 'Pending';
+                            statusclass = 'warning';
+                            break;
+                        case '0':
+                            statusword = 'Approved';
+                            statusclass = 'success';
+                            break;
+                        case '2':
+                            statusword = 'Not Verified';
+                            statusclass = 'Danger';
+                            break;
+                        case '3':
+                            statusword = 'Denied';
+                            statusclass = 'primary';
+                            break;
+                        default:
+                          break;
+                      }
+                      return '<span class="p-1 mb-1 bg-' + statusclass + ' text-white">' + statusword + '</span>'
+                    }
+                  },
+                  { data : null,
+                    render: function(data, type, row, meta){
+                      var statusword;
+                      switch(row.user_isdeactivated){
+                        case '1':
+                            statusword = 'Block';
+                            break;
+                        case '4':
+                            statusword = 'Pending';
+                            break;
+                        case '0':
+                            statusword = 'Approved';
+                            break;
+                        case '2':
+                            statusword = 'NotVerified';
+                            break;
+                        case '3':
+                            statusword = 'Denied';
+                            break;
+                        default:
+                          break;
+                      }
+                      if(statusword == "Denied" || statusword == "Approved")
+                      {
+                        return '<a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'
+                      }
+                      else if(statusword == "Block")
+                      {
+                        return '<a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Unblock</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'
+                      }
+                      else if( statusword == "Pending" || statusword == "NotVerified")
+                      {
+                        return '<a data-value='+data+' class="btn btn-primary btn-sm logMe" href=javascript":;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a><a class="btn btn-warning btn-sm" href="javascript:;">Deny</a>'
+                      }
+                    }
+                  },
                 ],
             });
+            elementLoad('.logMe').then(()=>{
+              document.querySelectorAll('.logMe').forEach(el=>{
+                el.onclick = e=>{
+                  console.log("clicked");
+                  value.methods.approveEmp(e.target.dataset.value);
+                }
+              })
+            });
+
+
+
+
             if ($('#ridesharerTable_wrapper').length == 1) {
             $('#divRequest2').empty().append('<table id="ridesharerTable"><thead><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></thead><tfoot><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></tfoot></table>');
         }
@@ -531,14 +611,19 @@
                   { data : "user_firstname"},
                   { data : "user_lastname"},
                   { data : "user_email"},
-                  { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
+                  {
+                    data : "user_id",
+                    render : function(data){
+                      return `<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>`
+                    }
+                  }
                 ],
             });
-            
         });
             axiosReq({
                method: 'post',
                url: ciapi +'users?user_role=technician&_batch=true',
+               data: "",
                headers:{
                     PWAuth: local.get('user_token'),
                     PWAuthUser: local.get('user_id')
@@ -597,9 +682,8 @@
                }).catch(err=>{
                console.log(err.response);
                }).then(res=>{
-                   console.log(res.data);
                    if(res.data.success)
-                   {
+                   {  
                       this.towtruck = Object.keys(res.data.result).length;
                       document.querySelector(".con-value3").style.display = "block";
                       document.querySelector(".content3").style.display = "none";
@@ -607,9 +691,6 @@
                       {
                         this.objecttw.push(removeFix(res.data.result[data],'user_'));
                       }
-                      this.towtruck = Object.keys(res.data.result).length;
-                      document.querySelector(".con-value1").style.display = "block";
-                      document.querySelector(".content1").style.display = "none";
                    }
                    else
                    {
@@ -618,7 +699,46 @@
                });
                
        },
-  }
+       methods : {
+        approveEmp(data){
+          axiosReq({
+                method: 'post',
+                url: ciapi+'users/update?user_id='+data,
+                headers:{
+                    PWAuth: local.get('user_token'),
+                    PWAuthUser: local.get('user_id')
+                },
+                data:{isdeactivated:0}
+            }).catch(()=>{
+                console.log(res);
+            }).then(res=>{
+              console.log("success");
+              if ($('#techniciantable_wrapper').length == 1) {
+                  $('#divRequest1').empty().append('<table id="techniciantable"><thead><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></thead><tfoot><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></tfoot></table>');
+              }
+                $('#techniciantable').dataTable({
+                      ajax : {
+                        url: 'https://www.medicalcouriertransportation.com/rentarepair/api/users?user_role=technician&_batch=true',
+                        dataSrc: 'result'
+                      },
+                      columns : [
+                        { data : "user_id" },
+                        { data : "user_username" },
+                        { data : "user_firstname"},
+                        { data : "user_lastname"},
+                        { data : "user_email"},
+                        { data : "user_id",
+                          render: function(data){
+                            return '<a data-value='+data+' class="btn btn-primary btn-sm logMe" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'
+                          }
+                        },
+                      ],
+                  });
+            });
+        }
+       }
+  })
+  export default value
 </script>
 <style scoped>
 @import '../../src/assets/style.css';

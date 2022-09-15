@@ -5,8 +5,7 @@
       <nav>
         <ol class="breadcrumb">
           <RouterLink class="breadcrumb-item" to="/dashboard">Home</RouterLink>
-          <li class="breadcrumb-item">Employee</li>
-          <li class="breadcrumb-item active">Ride Sharer</li>
+          <li class="breadcrumb-item active">Service</li>
 
         </ol>
       </nav>
@@ -19,48 +18,29 @@
     </div>
     <div class="card">
         <div class="card-body">
-                  <h5 class="card-title">RideSharer</h5> 
-                  <div class="content1">
-                    <ContentLoader  class="con-loader"
-                      width="930"
-                      height="150"
-                      primaryColor="#f3f3f3"
-                      secondaryColor="#cccccc">
-                      <rect x="0" y="2" rx="3" ry="3" width="3000" height="35" />
-                      <rect x="0" y="50" rx="3" ry="3" width="3000" height="35" />
-                      <rect x="0" y="100" rx="3" ry="3" width="3000" height="35" />
-                      </ContentLoader>
-                  </div>
-                  <div class="con-value1">
-                
-
-                    <table class="table tableborderless datatable">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Firstname</th>
-                                <th scope="col">Lastname</th>
-                                <th scope="col">Email</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="o in objectt">
-                                <th scope="row"><a href="#">{{o.id}}</a></th>
-                                <td>{{o.username}}</td>
-                                <td>{{o.firstname}}</td>
-                                <td>{{o.lastname}}</td>
-                                <td>{{o.email}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                  </div>
-                </div>
+          <h5 class="card-title">RideSharer</h5>
+          <div id="divRequest5">
+            <table id="servicestable1" class="table tableborderless datatable" width="100%">
+              <thead>
+                    <tr>
+                        <th scope="col">Services</th>
+                        <th scope="col">Action</th>
+                    </tr>
+              </thead>
+                <tfoot>
+                    <tr>
+                        <th scope="col">Services</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </tfoot>
+            </table>
+          </div>
+        </div>
     </div>
    </SharedLayout>
 </template>
 <script>
-import { local } from '../functions.js';
+  import { local } from '../functions.js';
    import { axiosReq,removeFix } from '@/functions';
    import { ciapi } from '@/globals';
    import { ContentLoader } from 'vue-content-loader'
@@ -72,7 +52,7 @@ import { local } from '../functions.js';
     },
     data() {
          return{
-           objectt: [{
+           objects: [{
               Id: 0,
               username: "",
               firstname: "",
@@ -83,36 +63,49 @@ import { local } from '../functions.js';
            technicians: 0,
          }
        },
-       mounted(){
-            axiosReq({
-               method: 'post',
-               url: ciapi +'users?user_role=ride_sharer&_batch=true',
-               headers:{
-                    PWAuth: local.get('user_token'),
-                    PWAuthUser: local.get('user_id')
+       created()
+       {
+        axiosReq({
+          method: 'post',
+          url: ciapi +'admin/config?config_field=task__problem__types',
+          headers:{
+              PWAuth: local.get('user_token'),
+              PWAuthUser: local.get('user_id')
+        }
+          }).catch(err=>{
+          console.log(err.response)})
+          .then(res=>{
+              if(res.data.success)
+              {
+                
+                for(let data in res.data.result)
+                {
+                  
+                  this.objects.push(removeFix(res.data.result[data]));
+                }
               }
-               }).then(res=>{
-                   if(res.data.success)
-                   {
-                      for(let data in res.data.result)
-                      {
-                        this.objectt.push(removeFix(res.data.result[data],'user_'));
-                      }
-                      this.technicians = Object.keys(res.data.result).length;
-                      document.querySelector(".con-value1").style.display = "block";
-                      document.querySelector(".content1").style.display = "none";
-                      document.querySelector(".con-value4").style.display = "block";
-                      document.querySelector(".content4").style.display = "none";
-                   }
-                   else
-                   {
-                      console.log("something went wrong");
-                   }
-               }).catch(err=>{
-               console.log(err.response)});
-
-               
-       },
+              else
+              {
+                console.log("something went wrong");
+              }
+          })
+        // $(document).ready(function () {
+        // if ($('#towingtable1_wrapper').length == 1) {
+        //     $('#divRequest6').empty().append('<table id="towingtable1"><thead><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></thead><tfoot><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></tfoot></table>');
+        // }
+        //     $('#towingtable1').DataTable({
+        //     ajax : {
+        //       url : 'https://www.medicalcouriertransportation.com/rentarepair/api/admin/config?config_field=task__problem__types',
+        //       dataSrc : "result",
+        //     },
+        //     columns : [
+        //       { data : "task__problem__types" },
+        //       { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
+        //     ]
+        //     });
+        //     console.log(data);
+        //   });
+       }
   }
 </script>
 <style scoped>

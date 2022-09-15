@@ -17,7 +17,7 @@
             <button type="button" class="btn btn-primary">Add Ride Sharer</button>
         </div>
     </div>
-    <div class="card">
+    <div class="card recent-sales overflow-auto">
         <div class="card-body">
           <h5 class="card-title">RideSharer</h5> 
             <div id="divRequest4">
@@ -49,9 +49,6 @@
    </SharedLayout>
 </template>
 <script>
-import { local } from '../functions.js';
-   import { axiosReq,removeFix } from '@/functions';
-   import { ciapi } from '@/globals';
    import { ContentLoader } from 'vue-content-loader'
 
    export default{
@@ -71,32 +68,6 @@ import { local } from '../functions.js';
            }],
            technicians: 0,
          }
-       },
-       mounted(){
-            axiosReq({
-               method: 'post',
-               url: ciapi +'users?user_role=ride_sharer&_batch=true',
-               headers:{
-                    PWAuth: local.get('user_token'),
-                    PWAuthUser: local.get('user_id')
-              }
-               }).then(res=>{
-                   if(res.data.success)
-                   {
-                      for(let data in res.data.result)
-                      {
-                        this.objectt.push(removeFix(res.data.result[data],'user_'));
-                      }
-                      this.technicians = Object.keys(res.data.result).length;
-                      document.querySelector(".con-value1").style.display = "block";
-                      document.querySelector(".content1").style.display = "none";
-                   }
-                   else
-                   {
-                      console.log("something went wrong");
-                   }
-               }).catch(err=>{
-               console.log(err.response)});
        },
        created()
        {$(document).ready(function () {
