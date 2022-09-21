@@ -10,33 +10,47 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-    <div class="card">
-        <div class="card-body">
-            <p></p>
-            <button type="button" class="btn btn-primary">Add Ride Sharer</button>
+    
+    <div class="row">
+      <div class="col-xl-8 col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Announcements</h5>
+            
+            </div>
         </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">RideSharer</h5>
-          <div id="divRequest5">
-            <table id="servicestable1" class="table tableborderless datatable" width="100%">
-              <thead>
-                    <tr>
-                        <th scope="col">Services</th>
-                        <th scope="col">Action</th>
-                    </tr>
-              </thead>
-                <tfoot>
-                    <tr>
-                        <th scope="col">Services</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </tfoot>
-            </table>
+      </div>
+      <div class="col-xl-4 col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              Technician Service Types  
+            </div>
+            <ul class="list-group list-group-flush techtypes">
+              <li class="list-group-item" v-for="t in task_types" :key="t">{{t}}
+                <span class="closeBtn"></span>
+              </li>
+            </ul>
+            
           </div>
         </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              Booking Fee 
+            </div>  
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              Testing 
+            </div>  
+          </div>
+        </div>
+      </div>
     </div>
+    
    </SharedLayout>
 </template>
 <script>
@@ -52,60 +66,22 @@
     },
     data() {
          return{
-           objects: [{
-              Id: 0,
-              username: "",
-              firstname: "",
-              lastname: "",
-              email: "",
-              status: "",
-           }],
-           technicians: 0,
+           task_types:[],
          }
        },
-       created()
-       {
+    mounted()
+    {
         axiosReq({
           method: 'post',
           url: ciapi +'admin/config?config_field=task__problem__types',
           headers:{
               PWAuth: local.get('user_token'),
               PWAuthUser: local.get('user_id')
-        }
-          }).catch(err=>{
-          console.log(err.response)})
-          .then(res=>{
-              if(res.data.success)
-              {
-                
-                for(let data in res.data.result)
-                {
-                  
-                  this.objects.push(removeFix(res.data.result[data]));
-                }
-              }
-              else
-              {
-                console.log("something went wrong");
-              }
-          })
-        // $(document).ready(function () {
-        // if ($('#towingtable1_wrapper').length == 1) {
-        //     $('#divRequest6').empty().append('<table id="towingtable1"><thead><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></thead><tfoot><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Email</th><th scope="col">Action</th></tr></tfoot></table>');
-        // }
-        //     $('#towingtable1').DataTable({
-        //     ajax : {
-        //       url : 'https://www.medicalcouriertransportation.com/rentarepair/api/admin/config?config_field=task__problem__types',
-        //       dataSrc : "result",
-        //     },
-        //     columns : [
-        //       { data : "task__problem__types" },
-        //       { data : null, className: "center d-flex flex-nowrap", defaultContent: '<a class="btn btn-primary btn-sm" href="javascript:;">Approve</a><a class="btn btn-danger btn-sm me-1 ms-1" href="javascript:;">Block</a><a class="btn btn-warning btn-sm" href="javascript:;">Edit</a>'},
-        //     ]
-        //     });
-        //     console.log(data);
-        //   });
-       }
+            }
+        }).then(res=>{
+          this.task_types = local.objectify(res.data.result.config_value);
+        })
+    }
   }
 </script>
 <style scoped>
@@ -118,4 +94,32 @@
 .con-value1{
   display: none;
 }
+
+.closeBtn::before,.closeBtn::after{
+    position: absolute;
+  content: "";
+  width: 20px;
+  height: 3px;
+  background: #c00;
+}
+.closeBtn::before{
+  transform: rotate(45deg);
+}
+.closeBtn::after{
+  transform: rotate(-45deg);
+}
+
+.techtypes li{
+  position: relative;
+}
+
+.techtypes li span{
+  right: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
 </style>
